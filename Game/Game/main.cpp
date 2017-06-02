@@ -1,5 +1,6 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
+#include <vld.h>
 #include "Level.h"
 #include "Menu.h"
 
@@ -11,4 +12,4 @@ int main()
 
 	delete g;
 	return 0;
-}
+} 

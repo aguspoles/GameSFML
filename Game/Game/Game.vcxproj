@@ -81,16 +81,20 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)SFML-2.4.2\Include;$(IncludePath)</AdditionalIncludeDirectories>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(SolutionDir)SFML-2.4.2\Include;$(IncludePath);$(SolutionDir)VLD\include</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)SFML-2.4.2\lib;$(LibraryPath)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-system-d.lib;opengl32.lib;winmm.lib;sfml-window-d.lib;sfml-graphics-d.lib;freetype.lib;jpeg.lib;sfml-main-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)SFML-2.4.2\lib;$(LibraryPath);$(SolutionDir)VLD\lib\Win32</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-system-d.lib;opengl32.lib;winmm.lib;sfml-window-d.lib;sfml-graphics-d.lib;freetype.lib;jpeg.lib;sfml-main-d.lib;%(AdditionalDependencies);vld.lib</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(SolutionDir)SFML-2.4.2\bin\*dll $(SolutionDir)Debug</Command>
+      <Command>copy $(SolutionDir)SFML-2.4.2\bin\*dll $(SolutionDir)Debug
+copy $(SolutionDir)VLD\bin\Win32\*dll $(SolutionDir)Debug
+copy $(SolutionDir)VLD\bin\Win32\vld_x86.pdb $(SolutionDir)Debug
+copy $(SolutionDir)VLD\bin\Win32\Microsoft.DTfW.DHL.manifest $(SolutionDir)Debug
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -129,7 +133,8 @@ copy $(SolutionDir)SFML-2.4.2\bin\*dll $(SolutionDir)Debug</Command>
       <SubSystem>Windows</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(SolutionDir)SFML-2.4.2\bin\*dll $(SolutionDir)Release</Command>
+      <Command>copy $(SolutionDir)SFML-2.4.2\bin\*dll $(SolutionDir)Release
+copy $(SolutionDir)VLD\bin\Win32\*dll $(SolutionDir)Release</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

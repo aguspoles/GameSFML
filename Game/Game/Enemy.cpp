@@ -2,11 +2,11 @@
 
 
 
-Enemy::Enemy()
+Enemy::Enemy() : Entity()
 {
 }
 
-Enemy::Enemy(const sf::Vector2f& pos)
+Enemy::Enemy(const sf::Vector2f& pos) : Entity()
 {
 	_sprite.setPosition(pos);
 }

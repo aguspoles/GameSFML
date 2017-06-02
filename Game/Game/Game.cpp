@@ -1,9 +1,8 @@
 #include "Game.h"
 
-Game::Game()
+Game::Game() : _window(NULL), _currentState(NULL)
 {
-	_window = NULL;
-	_currentState = NULL;
+
 }
 
 Game::~Game()

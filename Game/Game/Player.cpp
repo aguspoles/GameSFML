@@ -1,20 +1,14 @@
 #include "Player.h"
 
-Player::Player()
+Player::Player() : Entity(), _isMoving(false), _isDestroy(false), _isFighting(false)
 {
 	_sprite.scale(sf::Vector2f(0.2, 0.2));
-	_isMoving = false;
-	_isDestroy = false;
-	_isFighting = false;
 }
 
-Player::Player(const std::string& texture)
+Player::Player(const std::string& texture) : Entity(), _isMoving(false), _isDestroy(false), _isFighting(false)
 {
 	_sprite.scale(sf::Vector2f(0.2, 0.2));
 	SetTexture(texture);
-	_isMoving = false;
-	_isDestroy = false;
-	_isFighting = false;
 }
 
 

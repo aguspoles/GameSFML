@@ -2,10 +2,9 @@
 
 
 
-Entity::Entity()
+Entity::Entity() : _window(NULL), _isVisible(true)
 {
-	_window = NULL;
-	_isVisible = true;
+
 }
 
 Entity::~Entity()
