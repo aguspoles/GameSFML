@@ -8,7 +8,7 @@ Player::Player() : Entity()
 	_isFighting = false;
 }
 
-Player::Player(std::string texture) : Entity()
+Player::Player(const std::string& texture) : Entity()
 {
 	_sprite.scale(sf::Vector2f(0.2, 0.2));
 	SetTexture(texture);
@@ -29,13 +29,13 @@ void Player::Update()
 	Animate();
 }
 
-void Player::Draw()
+void Player::Draw() const
 {
 	if (_window)
 		_window->draw(_sprite);
 }
 
-void Player::SetTexture(std::string texture)
+void Player::SetTexture(const std::string& texture)
 {
 	_texture.loadFromFile("../Game/Textures/Player/" + texture);
 	_sprite.setTexture(_texture);
@@ -81,7 +81,7 @@ void Player::Move()
 	}
 }
 
-void Player::Fight()
+void Player::Fight() 
 {
 	_isFighting = false;
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
@@ -97,7 +97,7 @@ void Player::Animate()
     else IdleAnimation();
 }
 
-std::string Player::GetType()
+std::string Player::GetType() const
 {
 	return "Player";
 }
@@ -165,7 +165,7 @@ void Player::MeleeAnimation()
 	}
 }
 
-void Player::PlayerCollision(std::list<Entity*> &entities)
+void Player::PlayerCollision(const std::list<Entity*> &entities)
 {
 	for each(Entity* entitie in entities)
 	{

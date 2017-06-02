@@ -6,12 +6,12 @@ Enemy::Enemy() : Entity()
 {
 }
 
-Enemy::Enemy(sf::Vector2f pos) : Entity()
+Enemy::Enemy(const sf::Vector2f& pos) : Entity()
 {
 	_sprite.setPosition(pos);
 }
 
-Enemy::Enemy(sf::Vector2f pos, std::string texture) : Entity()
+Enemy::Enemy(const sf::Vector2f& pos, const std::string& texture) : Entity()
 {
 	_sprite.setScale(sf::Vector2f(2, 2));
 	SetTexture(texture);
@@ -28,13 +28,13 @@ void Enemy::Update()
 	Move();
 }
 
-void Enemy::Draw()
+void Enemy::Draw() const
 {
 	if (_window)
 		_window->draw(_sprite);
 }
 
-void Enemy::SetTexture(std::string texture)
+void Enemy::SetTexture(const std::string& texture)
 {
 	_texture.loadFromFile("../Game/Textures/Enemy/" + texture);
 	_sprite.setTexture(_texture);
@@ -44,7 +44,7 @@ void Enemy::Move()
 {
 }
 
-std::string Enemy::GetType()
+std::string Enemy::GetType() const
 {
 	return "Enemy";
 }

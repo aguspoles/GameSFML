@@ -7,15 +7,15 @@ private:
 	float _movementSpeed = 0.1;
 public:
 	Enemy();
-	Enemy(sf::Vector2f pos);
-	Enemy(sf::Vector2f pos, std::string textura);
+	Enemy(const sf::Vector2f& pos);
+	Enemy(const sf::Vector2f& pos, const std::string& textura);
 	~Enemy();
 
 	void Update();
-	void Draw();
-	void SetTexture(std::string texture);
+	void Draw() const;
+	void SetTexture(const std::string& texture);
 	void Move();
 
-	std::string GetType();
+	std::string GetType() const;
 };
 

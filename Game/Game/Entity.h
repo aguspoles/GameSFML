@@ -15,13 +15,13 @@ public:
 	Entity();
 	virtual ~Entity();
 
-	virtual void Draw() = 0;
-	virtual void SetTexture(std::string texture) = 0;
+	virtual void Draw() const = 0;
+	virtual void SetTexture(const std::string& texture) = 0;
 	virtual void Update() = 0;
 	void SetWindow(sf::RenderWindow* window);
 
-	sf::Sprite GetSprite();
-	virtual std::string GetType()=0;
-	bool IsVisible();
+	sf::Sprite GetSprite() const;
+	virtual std::string GetType() const = 0;
+	bool IsVisible() const;
 };
 

@@ -19,12 +19,15 @@
     <Filter Include="Archivos de encabezado\Entities">
       <UniqueIdentifier>{cbb65c33-92b5-4171-9aa8-7eb09bbe6692}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de código fuente\States">
+      <UniqueIdentifier>{0ff2beff-1fb0-4f40-a9b0-0b596ab3c6be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\States">
+      <UniqueIdentifier>{a9fa3022-6d7b-4f34-8b19-fb9cb4d13d42}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
     <ClCompile Include="Entity.cpp">
@@ -36,11 +39,17 @@
     <ClCompile Include="Enemy.cpp">
       <Filter>Archivos de código fuente\Entities</Filter>
     </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Archivos de código fuente\States</Filter>
+    </ClCompile>
+    <ClCompile Include="Level.cpp">
+      <Filter>Archivos de código fuente\States</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Archivos de código fuente\States</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Game.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="Entity.h">
       <Filter>Archivos de encabezado\Entities</Filter>
     </ClInclude>
@@ -49,6 +58,15 @@
     </ClInclude>
     <ClInclude Include="Enemy.h">
       <Filter>Archivos de encabezado\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Archivos de encabezado\States</Filter>
+    </ClInclude>
+    <ClInclude Include="Level.h">
+      <Filter>Archivos de encabezado\States</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Archivos de encabezado\States</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

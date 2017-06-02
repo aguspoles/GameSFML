@@ -17,12 +17,12 @@ void Entity::SetWindow(sf::RenderWindow* window)
 	_window = window;
 }
 
-sf::Sprite Entity::GetSprite()
+sf::Sprite Entity::GetSprite() const
 {
 	return _sprite;
 }
 
-bool Entity::IsVisible()
+bool Entity::IsVisible() const
 {
 	return _isVisible;
 }

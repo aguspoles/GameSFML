@@ -13,22 +13,22 @@ private:
 
 public:
 	Player();
-	Player(std::string texture);
+	Player(const std::string& texture);
 	~Player();
 
 	void Update();
-	void Draw();
-	void SetTexture(std::string texture);
+	void Draw() const;
+	void SetTexture(const std::string& texture);
 	void Move();
 	void Fight();
 	void Animate();
 
-	std::string GetType();
+	std::string GetType() const;
 	void IdleAnimation();
 	void MovementAnimation();
 	void MeleeAnimation();
-	bool IsMoving();
+	bool IsMoving() const;
 
-	void PlayerCollision(std::list<Entity*> &entities);
+	void PlayerCollision(const std::list<Entity*> &entities);
 };
 

@@ -11,15 +11,21 @@
 class Game
 {
 private:
-	std::list<Entity*> _entities;
+	Game* _currentState;
+protected:
 	sf::RenderWindow* _window;
 public:
 	Game();
 	virtual ~Game();
 
-	void Run();
-	void Update();
-	void Init();
-	void Destroy();
+    virtual void Run() = 0;
+	virtual void Update() = 0;
+	virtual void Init() = 0;
+	virtual void Destroy() = 0;
+
+    void SwitchState(Game* g);
+	Game* GetState() const;
+	void SetWindow(sf::RenderWindow* window);
+	sf::RenderWindow* GetWindow() const;
 };
 
