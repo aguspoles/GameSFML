@@ -1,6 +1,6 @@
 #include "Level.h"
 
-
+#define CANT_ENEMIES 10
 
 Level::Level() 
 {

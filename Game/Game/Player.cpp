@@ -1,6 +1,6 @@
 #include "Player.h"
 
-Player::Player() : Entity()
+Player::Player()
 {
 	_sprite.scale(sf::Vector2f(0.2, 0.2));
 	_isMoving = false;
@@ -8,7 +8,7 @@ Player::Player() : Entity()
 	_isFighting = false;
 }
 
-Player::Player(const std::string& texture) : Entity()
+Player::Player(const std::string& texture)
 {
 	_sprite.scale(sf::Vector2f(0.2, 0.2));
 	SetTexture(texture);

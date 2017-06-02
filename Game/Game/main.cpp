@@ -9,6 +9,6 @@ int main()
 	Game* g = new Menu(&window);
 	g->Run();
 
-	//delete g;
+	delete g;
 	return 0;
 }

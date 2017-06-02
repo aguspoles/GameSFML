@@ -86,12 +86,11 @@
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)SFML-2.4.2\lib;$(LibraryPath)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-system.lib;opengl32.lib;winmm.lib;sfml-window.lib;sfml-graphics.lib;freetype.lib;jpeg.lib;sfml-main.lib;%(AdditionalDependencies);sfml-main.lib</AdditionalDependencies>
+      <AdditionalDependencies>sfml-system-d.lib;opengl32.lib;winmm.lib;sfml-window-d.lib;sfml-graphics-d.lib;freetype.lib;jpeg.lib;sfml-main-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(SolutionDir)SFML-2.4.2\bin\*dll $(SolutionDir)Release
-copy $(SolutionDir)SFML-2.4.2\bin\*dll $(SolutionDir)Debug</Command>
+      <Command>copy $(SolutionDir)SFML-2.4.2\bin\*dll $(SolutionDir)Debug</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -130,8 +129,7 @@ copy $(SolutionDir)SFML-2.4.2\bin\*dll $(SolutionDir)Debug</Command>
       <SubSystem>Windows</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(SolutionDir)SFML-2.4.2\bin\*dll $(SolutionDir)Release
-copy $(SolutionDir)SFML-2.4.2\bin\*dll $(SolutionDir)Debug</Command>
+      <Command>copy $(SolutionDir)SFML-2.4.2\bin\*dll $(SolutionDir)Release</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

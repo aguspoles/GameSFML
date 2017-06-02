@@ -6,8 +6,6 @@
 #include <list>
 #include <time.h>
 
-#define CANT_ENEMIES 10
-
 class Game
 {
 private:
