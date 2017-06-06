@@ -1,4 +1,5 @@
-#pragma once
+#ifndef PLAYER_H
+#define PLAYER_H
 #include "Entity.h"
 #include "Enemy.h"
 
@@ -32,3 +33,4 @@ public:
 	void PlayerCollision(const std::list<Entity*> &entities);
 };
 
+#endif

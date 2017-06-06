@@ -1,6 +1,10 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
+
+#ifdef DEBUG
 #include <vld.h>
+#endif // DEBUG
+
 #include "Level.h"
 #include "Menu.h"
 

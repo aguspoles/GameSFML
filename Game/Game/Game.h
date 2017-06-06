@@ -1,4 +1,5 @@
-#pragma once
+#ifndef GAME_H
+#define GAME_H
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
 #include "Player.h"
@@ -27,3 +28,4 @@ public:
 	sf::RenderWindow* GetWindow() const;
 };
 
+#endif

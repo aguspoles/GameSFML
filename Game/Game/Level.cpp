@@ -24,6 +24,7 @@ void Level::Init()
 	int posY;
 	Player* _player = new Player();
 	Enemy* enemies[CANT_ENEMIES];
+	_entities.push_back(_player);
 	for (int i = 0; i < CANT_ENEMIES; i++)
 	{
 		posX = 50 + rand() % (_window->getSize().x + 1 - 50);
@@ -31,7 +32,6 @@ void Level::Init()
 		enemies[i] = new Enemy(sf::Vector2f(posX, posY), "idle.gif");
 		_entities.push_back(enemies[i]);
 	}
-	_entities.push_back(_player);
 
 	for each(Entity* entitie in _entities)
 	{
@@ -59,7 +59,8 @@ void Level::Run()
 
 		for each(Entity* entitie in _entities)
 		{
-			entitie->Draw();
+			if (entitie)
+				entitie->Draw();
 		}
 
 		_window->display();
@@ -69,21 +70,21 @@ void Level::Run()
 
 void Level::Update()
 {
-	for each(Entity* entitie in _entities)
+	for(std::list<Entity>::iterator it = _entities.begin; it < _entities.end; it++)
 	{
-		if (entitie->IsVisible())
+		if (it->IsVisible())
 		{
-			entitie->Update();
-			if (entitie->GetType() == "Player")
+			it->Update();
+			if (it->GetType() == "Player")
 			{
-				Player *p = (Player*)entitie;
+				Player *p = (Player*)&it;
 				p->PlayerCollision(_entities);
 			}
 		}
 		else
 		{
-			delete entitie;
-			_entities.remove(entitie);
+			it = _entities.erase(it);
+			//delete it;
 		}
 	}
 }

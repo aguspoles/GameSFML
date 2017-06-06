@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ENTITY_H
+#define ENTITY_H
 #include<string>
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
@@ -25,3 +26,4 @@ public:
 	bool IsVisible() const;
 };
 
+#endif

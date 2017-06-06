@@ -2,16 +2,16 @@
 
 
 
-Enemy::Enemy() : Entity()
+Enemy::Enemy() : flag(true)
 {
 }
 
-Enemy::Enemy(const sf::Vector2f& pos) : Entity()
+Enemy::Enemy(const sf::Vector2f& pos) : flag(true)
 {
 	_sprite.setPosition(pos);
 }
 
-Enemy::Enemy(const sf::Vector2f& pos, const std::string& texture) : Entity()
+Enemy::Enemy(const sf::Vector2f& pos, const std::string& texture)
 {
 	_sprite.setScale(sf::Vector2f(2, 2));
 	SetTexture(texture);
@@ -42,6 +42,16 @@ void Enemy::SetTexture(const std::string& texture)
 
 void Enemy::Move()
 {
+	if ((_sprite.getPosition().x < _window->getSize().x - _sprite.getGlobalBounds().width) && flag)
+	{
+			_sprite.move(_movementSpeed, 0);
+	}
+	else flag = false;
+	if (_sprite.getPosition().x > 0 && !flag)
+	{
+			_sprite.move(-_movementSpeed, 0);
+	}
+	else flag = true;
 }
 
 std::string Enemy::GetType() const

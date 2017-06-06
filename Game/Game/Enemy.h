@@ -1,10 +1,12 @@
-#pragma once
+#ifndef ENEMY_H
+#define ENEMY_H
 #include "Entity.h"
 class Enemy :
 	public Entity
 {
 private:
 	float _movementSpeed = 0.1;
+	bool flag;
 public:
 	Enemy();
 	Enemy(const sf::Vector2f& pos);
@@ -19,3 +21,4 @@ public:
 	std::string GetType() const;
 };
 
+#endif

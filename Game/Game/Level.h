@@ -1,4 +1,5 @@
-#pragma once
+#ifndef LEVEL_H
+#define LEVEL_H
 #include "Game.h"
 #include "Menu.h"
 
@@ -17,3 +18,4 @@ public:
 	void Destroy();
 };
 
+#endif
