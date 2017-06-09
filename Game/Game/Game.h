@@ -11,6 +11,8 @@ class Game
 {
 private:
 	Game* _currentState;
+	static sf::Clock _clock;
+	static float _elapsed;
 protected:
 	sf::RenderWindow* _window;
 public:
@@ -26,6 +28,9 @@ public:
 	Game* GetState() const;
 	void SetWindow(sf::RenderWindow* window);
 	sf::RenderWindow* GetWindow() const;
+
+	static float Time();
+	static float ElapsedTime();
 };
 
 #endif

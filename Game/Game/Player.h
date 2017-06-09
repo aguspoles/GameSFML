@@ -2,12 +2,13 @@
 #define PLAYER_H
 #include "Entity.h"
 #include "Enemy.h"
+#include "Game.h"
 
 class Player :
 	public Entity
 {
 private:
-	float _movementSpeed = 0.1;
+	float _movementSpeed;
 	bool _isMoving;
 	bool _isFighting;
 	bool _isDestroy;
