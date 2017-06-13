@@ -44,6 +44,7 @@ void Level::Run()
 	Init();
 	while (_window->isOpen())
 	{
+		Game::ElapsedTime();
 		// check all the window's events that were triggered since the last iteration of the loop
 		sf::Event event;
 		while (_window->pollEvent(event))
@@ -55,14 +56,13 @@ void Level::Run()
 
 		Update();
 
-		_window->clear(sf::Color::Black);
-
 		for each(Entity* entitie in _entities)
 		{
 			if (entitie)
 				entitie->Draw();
 		}
 
+	    _window->clear(sf::Color::Black);
 		_window->display();
 	}
 	Destroy();
@@ -70,7 +70,6 @@ void Level::Run()
 
 void Level::Update()
 {
-	//_elapsed = Game::ElapsedTime();
 	for(std::list<Entity*>::iterator it = _entities.begin(); it != _entities.end(); it++)
 	{
 		if (*it && (*it)->IsVisible())

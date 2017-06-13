@@ -7,7 +7,6 @@ class Level :
 	public Game
 {
 private:
-	//float _elapsed;
 	std::list<Entity*> _entities;
 public:
 	Level();

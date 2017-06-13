@@ -1,7 +1,7 @@
 #include "Game.h"
 
 sf::Clock Game::_clock = sf::Clock();
-float Game::_elapsed = 0;
+float Game::_gameDeltaTime = 0;
 
 Game::Game() : _window(NULL), _currentState(NULL)
 {
@@ -41,11 +41,11 @@ sf::RenderWindow* Game::GetWindow() const
 
 float Game::Time()
 {
-	return _clock.getElapsedTime().asSeconds();
+	return _gameDeltaTime;
 }
 
 float Game::ElapsedTime()
 {
-	_elapsed = _clock.restart().asSeconds();
-	return _elapsed;
+	_gameDeltaTime = _clock.restart().asSeconds();
+	return _gameDeltaTime; 
 }

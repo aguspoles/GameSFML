@@ -37,8 +37,6 @@ void Menu::Run()
 		Update();
 
 		_window->clear(sf::Color::White);
-
-		
 		_window->display();
 	}
 	Destroy();

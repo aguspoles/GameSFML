@@ -12,7 +12,7 @@ class Game
 private:
 	Game* _currentState;
 	static sf::Clock _clock;
-	static float _elapsed;
+    static float _gameDeltaTime;
 protected:
 	sf::RenderWindow* _window;
 public:
