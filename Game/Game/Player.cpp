@@ -16,9 +16,14 @@ Player::~Player()
 {
 }
 
+void Player::Init()
+{
+	SetTexture("Idle (1).png");
+}
+
 void Player::Update()
 {
-	_movementSpeed = Game::Time()  * 0.1;
+	_movementSpeed = Game::Time()  * 50;
 	Move();
 	Fight();
 	Animate();
@@ -101,7 +106,7 @@ void Player::IdleAnimation()
 {
 	static int time = 1;
 	static sf::Clock _clock;
-	if (Game::Time() >= time*0.1)
+	if (_clock.getElapsedTime().asSeconds() >= time*0.1)
 	{
 		std::string iesimo = "Idle ";
 		iesimo += "(";

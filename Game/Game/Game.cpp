@@ -47,5 +47,5 @@ float Game::Time()
 float Game::ElapsedTime()
 {
 	_gameDeltaTime = _clock.restart().asSeconds();
-	return _gameDeltaTime; 
+	return _gameDeltaTime;
 }

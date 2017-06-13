@@ -18,6 +18,7 @@ public:
 	Player(const std::string& texture);
 	~Player();
 
+	void Init();
 	void Update();
 	void Draw() const;
 	void SetTexture(const std::string& texture);

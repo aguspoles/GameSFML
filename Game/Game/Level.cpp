@@ -56,14 +56,15 @@ void Level::Run()
 
 		Update();
 
+	    _window->clear(sf::Color::Black);
+
 		for each(Entity* entitie in _entities)
 		{
 			if (entitie)
 				entitie->Draw();
 		}
 
-	    _window->clear(sf::Color::Black);
-		_window->display();
+		_window->display(); 
 	}
 	Destroy();
 }
