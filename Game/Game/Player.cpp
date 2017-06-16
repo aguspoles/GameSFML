@@ -1,11 +1,11 @@
 #include "Player.h"
 
-Player::Player() : _movementSpeed(0.1), _isMoving(false), _isDestroy(false), _isFighting(false)
+Player::Player() : _movementSpeed(50), _isMoving(false), _isDestroy(false), _isFighting(false)
 {
 	_sprite.scale(sf::Vector2f(0.2, 0.2));
 }
 
-Player::Player(const std::string& texture) : _movementSpeed(0.1), _isMoving(false), _isDestroy(false), _isFighting(false)
+Player::Player(const std::string& texture) : _movementSpeed(50), _isMoving(false), _isDestroy(false), _isFighting(false)
 {
 	_sprite.scale(sf::Vector2f(0.2, 0.2));
 	SetTexture(texture);

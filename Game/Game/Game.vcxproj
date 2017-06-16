@@ -88,7 +88,7 @@
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)SFML-2.4.2\lib;$(LibraryPath);$(SolutionDir)VLD\lib\Win32</AdditionalLibraryDirectories>
       <AdditionalDependencies>sfml-system-d.lib;opengl32.lib;winmm.lib;sfml-window-d.lib;sfml-graphics-d.lib;freetype.lib;jpeg.lib;sfml-main-d.lib;%(AdditionalDependencies);vld.lib</AdditionalDependencies>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
       <Command>copy $(SolutionDir)SFML-2.4.2\bin\*dll $(SolutionDir)Debug

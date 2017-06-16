@@ -1,11 +1,13 @@
 #ifndef ENEMY_H
 #define ENEMY_H
 #include "Entity.h"
+#include "Game.h"
+
 class Enemy :
 	public Entity
 {
 private:
-	float _movementSpeed = 0.1;
+	float _movementSpeed;
 	bool flag;
 public:
 	Enemy();

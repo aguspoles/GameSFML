@@ -2,16 +2,16 @@
 
 
 
-Enemy::Enemy() : flag(true)
+Enemy::Enemy() : flag(true), _movementSpeed(25)
 {
 }
 
-Enemy::Enemy(const sf::Vector2f& pos) : flag(true)
+Enemy::Enemy(const sf::Vector2f& pos) : flag(true), _movementSpeed(25)
 {
 	_sprite.setPosition(pos);
 }
 
-Enemy::Enemy(const sf::Vector2f& pos, const std::string& texture)
+Enemy::Enemy(const sf::Vector2f& pos, const std::string& texture) : flag(true), _movementSpeed(25)
 {
 	_sprite.setScale(sf::Vector2f(2, 2));
 	SetTexture(texture);
@@ -25,6 +25,7 @@ Enemy::~Enemy()
 
 void Enemy::Update()
 {
+	_movementSpeed = Game::Time() * 25;
 	Move();
 }
 

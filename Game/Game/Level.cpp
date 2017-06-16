@@ -58,11 +58,7 @@ void Level::Run()
 
 	    _window->clear(sf::Color::Black);
 
-		for each(Entity* entitie in _entities)
-		{
-			if (entitie)
-				entitie->Draw();
-		}
+		Draw();
 
 		_window->display(); 
 	}
@@ -87,6 +83,15 @@ void Level::Update()
 			delete *it;
 			*it = NULL;
 		}
+	}
+}
+
+void Level::Draw()
+{
+	for each(Entity* entitie in _entities)
+	{
+		if (entitie)
+			entitie->Draw();
 	}
 }
 

@@ -6,6 +6,9 @@
 class Menu :
 	public Game
 {
+private:
+	sf::Text _text;
+	sf::Font _font;
 public:
 	Menu();
 	Menu(sf::RenderWindow* window);
@@ -13,6 +16,7 @@ public:
 
 	void Run();
 	void Update();
+	void Draw();
 	void Init();
 	void Destroy();
 };

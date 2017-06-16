@@ -14,6 +14,7 @@ public:
 
 	void Run();
 	void Update();
+	void Draw();
 	void Init();
 	void Destroy();
 };
