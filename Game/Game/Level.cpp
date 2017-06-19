@@ -4,6 +4,9 @@
 
 Level::Level() 
 {
+	_backgroundTexture.loadFromFile("../Game/Textures/BG.png");
+	_background.setTexture(_backgroundTexture);
+	_background.setScale(0.4, 0.524);
 }
 
 
@@ -23,19 +26,33 @@ void Level::Init()
 	int posX;
 	int posY;
 	Player* _player = new Player();
-	Enemy* enemies[CANT_ENEMIES];
 	_entities.push_back(_player);
-	/*for (int i = 0; i < CANT_ENEMIES; i++)
+	Enemy* enemies[CANT_ENEMIES];
+	PickUp* picks[CANT_ENEMIES];
+	for (size_t i = 0; i < CANT_ENEMIES; i++)
 	{
-		posX = 50 + rand() % (_window->getSize().x + 1 - 50);
-		posY = 50 + rand() % (_window->getSize().y + 1 - 50);
-		enemies[i] = new Enemy(sf::Vector2f(posX, posY), "idle.gif");
+		enemies[i] = new PumpkinBoy();
+		picks[i] = new PickUp();
 		_entities.push_back(enemies[i]);
-	}*/
+		_entities.push_back(picks[i]);
+	}
+	int randomX1 = (int)(enemies[0]->GetSprite()->getGlobalBounds().width);
+	int randomX = _window->getSize().x - randomX1;
+	int randomY1 = (int)(enemies[0]->GetSprite()->getGlobalBounds().height);
+	int randomY = _window->getSize().y - randomY1;
+	for (int i = 0; i < CANT_ENEMIES; i++)
+	{
+		posX = randomX1 + rand() % randomX;
+		posY = randomX1 + rand() % randomY;
+		enemies[i]->GetSprite()->setPosition(posX, posY);
+		picks[i]->GetSprite()->setPosition(posX, posY);
+		enemies[i] = NULL;//el borrado lo hago desde el destructor;
+	}
 
 	for each(Entity* entitie in _entities)
 	{
 		entitie->SetWindow(_window);
+		entitie->Init();
 	}
 }
 
@@ -45,13 +62,15 @@ void Level::Run()
 	while (_window->isOpen())
 	{
 		Game::ElapsedTime();
-		// check all the window's events that were triggered since the last iteration of the loop
+
 		sf::Event event;
 		while (_window->pollEvent(event))
 		{
 			// "close requested" event: we close the window
 			if (event.type == sf::Event::Closed)
 				_window->close();
+			if (event.type == sf::Event::Resized)
+				_window->setSize(_window->getSize());
 		}
 
 		Update();
@@ -80,14 +99,18 @@ void Level::Update()
 		}
 		else
 		{
-			delete *it;
-			*it = NULL;
+			if (*it)
+			{
+				delete *it;
+				*it = NULL;
+			}
 		}
 	}
 }
 
 void Level::Draw()
 {
+	_window->draw(_background);
 	for each(Entity* entitie in _entities)
 	{
 		if (entitie)

@@ -25,6 +25,18 @@
     <Filter Include="Archivos de encabezado\States">
       <UniqueIdentifier>{a9fa3022-6d7b-4f34-8b19-fb9cb4d13d42}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Archivos de código fuente\Entities\Enemies">
+      <UniqueIdentifier>{1933b96b-a78a-4f07-8bd1-29a6a76c07c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Entities\Enemies">
+      <UniqueIdentifier>{44dcdd1e-1277-4e86-91ff-734a21fa4efe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de código fuente\Others">
+      <UniqueIdentifier>{c3d7ae8d-1db3-4053-9591-235fb5fafb71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archivos de encabezado\Others">
+      <UniqueIdentifier>{b9a050b7-1cce-4e58-91ac-d22a1b2b8dd2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -36,9 +48,6 @@
     <ClCompile Include="Player.cpp">
       <Filter>Archivos de código fuente\Entities</Filter>
     </ClCompile>
-    <ClCompile Include="Enemy.cpp">
-      <Filter>Archivos de código fuente\Entities</Filter>
-    </ClCompile>
     <ClCompile Include="Game.cpp">
       <Filter>Archivos de código fuente\States</Filter>
     </ClCompile>
@@ -48,15 +57,24 @@
     <ClCompile Include="Menu.cpp">
       <Filter>Archivos de código fuente\States</Filter>
     </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Archivos de código fuente\Entities\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="PumpkinBoy.cpp">
+      <Filter>Archivos de código fuente\Entities\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>Archivos de código fuente\Others</Filter>
+    </ClCompile>
+    <ClCompile Include="PickUp.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity.h">
       <Filter>Archivos de encabezado\Entities</Filter>
     </ClInclude>
     <ClInclude Include="Player.h">
-      <Filter>Archivos de encabezado\Entities</Filter>
-    </ClInclude>
-    <ClInclude Include="Enemy.h">
       <Filter>Archivos de encabezado\Entities</Filter>
     </ClInclude>
     <ClInclude Include="Game.h">
@@ -67,6 +85,18 @@
     </ClInclude>
     <ClInclude Include="Menu.h">
       <Filter>Archivos de encabezado\States</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Archivos de encabezado\Entities\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="PumpkinBoy.h">
+      <Filter>Archivos de encabezado\Entities\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>Archivos de encabezado\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="PickUp.h">
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

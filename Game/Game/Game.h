@@ -2,8 +2,6 @@
 #define GAME_H
 #include <SFML/Graphics.hpp>
 #include <SFML/Window.hpp>
-#include "Player.h"
-#include "Enemy.h"
 #include <list>
 #include <time.h>
 

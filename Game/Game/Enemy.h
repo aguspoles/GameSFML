@@ -2,23 +2,24 @@
 #define ENEMY_H
 #include "Entity.h"
 #include "Game.h"
+#include "Animation.h"
 
 class Enemy :
 	public Entity
 {
 private:
-	float _movementSpeed;
-	bool flag;
+
+
 public:
 	Enemy();
 	Enemy(const sf::Vector2f& pos);
-	Enemy(const sf::Vector2f& pos, const std::string& textura);
-	~Enemy();
+	virtual ~Enemy();
 
-	void Update();
-	void Draw() const;
-	void SetTexture(const std::string& texture);
-	void Move();
+	virtual void Init() = 0;
+	virtual void Update() = 0;
+	virtual void Draw() const = 0;
+	virtual void Move() = 0;
+	virtual void Animate() = 0;
 
 	std::string GetType() const;
 };

@@ -1,17 +1,28 @@
 #ifndef PLAYER_H
 #define PLAYER_H
-#include "Entity.h"
-#include "Enemy.h"
 #include "Game.h"
+#include "PumpkinBoy.h"
+#include "Entity.h"
+#include "Animation.h"
+#include "PickUp.h"
+#if DEBUG
+#include <iostream>
+#endif
 
 class Player :
 	public Entity
 {
 private:
+	static std::map<std::string, sf::Texture> _textureMap;
+	static const float Speed;
 	float _movementSpeed;
 	bool _isMoving;
 	bool _isFighting;
 	bool _isDestroy;
+	bool _lookingRight;
+	Animation* _idleAnimation;
+	Animation* _runAnimation;
+	Animation* _shootAnimation;
 
 public:
 	Player();
@@ -21,18 +32,17 @@ public:
 	void Init();
 	void Update();
 	void Draw() const;
-	void SetTexture(const std::string& texture);
+
 	void Move();
 	void Fight();
 	void Animate();
 
 	std::string GetType() const;
-	void IdleAnimation();
-	void MovementAnimation();
-	void MeleeAnimation();
 	bool IsMoving() const;
 
-	void PlayerCollision(const std::list<Entity*> &entities);
+	void PlayerCollision(std::list<Entity*> &entities);
+	void Collide(Enemy* enemy);
+	void Collide(PickUp* pickup);
 };
 
 #endif
