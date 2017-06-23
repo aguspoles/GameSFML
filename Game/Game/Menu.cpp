@@ -1,7 +1,7 @@
 #include "Menu.h"
 #include <iostream>
 
-Menu::Menu() 
+Menu::Menu()
 {
 	if (!_font.loadFromFile("../Game/Assets/Fonts/iomanoid.ttf"))
 	{
@@ -13,6 +13,9 @@ Menu::Menu()
 	_text.setFillColor(sf::Color::Red);
 	_text.setStyle(sf::Text::Bold | sf::Text::Italic | sf::Text::Underlined);
 	_text.setPosition(175, _window->getSize().y / 2 - _text.getCharacterSize());
+
+	_musicPlayer = new MusicPlayer();
+	_musicPlayer->Play(Music::MenuTheme);
 }
 
 Menu::Menu(sf::RenderWindow * window) : Game()
@@ -29,11 +32,15 @@ Menu::Menu(sf::RenderWindow * window) : Game()
 	_text.setStyle(sf::Text::Bold | sf::Text::Italic | sf::Text::Underlined);
 	_text.setOrigin(0, 0);
 	_text.setPosition(175, _window->getSize().y / 2 - _text.getCharacterSize());
+
+	_musicPlayer = new MusicPlayer();
+	_musicPlayer->Play(Music::MenuTheme);
 }
 
 
 Menu::~Menu()
 {
+	if (_musicPlayer) delete _musicPlayer;
 }
 
 void Menu::Init()

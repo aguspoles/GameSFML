@@ -87,7 +87,7 @@
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)SFML-2.4.2\lib;$(LibraryPath);$(SolutionDir)VLD\lib\Win32</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-system-d.lib;opengl32.lib;winmm.lib;sfml-window-d.lib;sfml-graphics-d.lib;freetype.lib;jpeg.lib;sfml-main-d.lib;%(AdditionalDependencies);vld.lib</AdditionalDependencies>
+      <AdditionalDependencies>sfml-system-d.lib;opengl32.lib;winmm.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-audio-d.lib;freetype.lib;jpeg.lib;sfml-main-d.lib;%(AdditionalDependencies);vld.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
@@ -167,6 +167,7 @@ copy $(SolutionDir)SFML-2.4.2\bin\*dll $(SolutionDir)Debug</Command>
     <ClCompile Include="Level.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="MusicPlayer.cpp" />
     <ClCompile Include="PickUp.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PumpkinBoy.cpp" />
@@ -178,6 +179,7 @@ copy $(SolutionDir)SFML-2.4.2\bin\*dll $(SolutionDir)Debug</Command>
     <ClInclude Include="Game.h" />
     <ClInclude Include="Level.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="MusicPlayer.h" />
     <ClInclude Include="PickUp.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PumpkinBoy.h" />

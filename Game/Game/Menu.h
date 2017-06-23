@@ -2,6 +2,7 @@
 #define MENU_H
 #include "Game.h"
 #include "Level.h"
+#include "MusicPlayer.h"
 
 class Menu :
 	public Game
@@ -9,6 +10,8 @@ class Menu :
 private:
 	sf::Text _text;
 	sf::Font _font;
+	MusicPlayer* _musicPlayer;
+
 public:
 	Menu();
 	Menu(sf::RenderWindow* window);
