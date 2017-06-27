@@ -2,9 +2,9 @@
 
 
 
-MusicPlayer::MusicPlayer() :  _fileName(), _volume(100)
+MusicPlayer::MusicPlayer() : _volume(100)
 {
-	_fileName[Music::MenuTheme] = MUSIC_PATH + "MenuTheme.wav";
+	_fileName[Music::MenuTheme] = MUSIC_PATH + "LevelTheme.wav";
 	_fileName[Music::LevelTheme] = MUSIC_PATH + "LevelTheme.wav";
 }
 

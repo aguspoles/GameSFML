@@ -1,10 +1,16 @@
-#pragma once
+#ifndef PICKUP_H
+#define PICKUP_H
 #include "Entity.h"
 #include "Animation.h"
+#include "SoundEffect.h"
 
 namespace PickUpTextures
 {
 	enum TextureID { SKELETON, PICK };
+}
+namespace PickUpSound
+{
+	enum SoundID { PICK };
 }
 
 class PickUp :
@@ -15,7 +21,11 @@ private:
 	static std::map<PickUpTextures::TextureID, bool> _texturesLoaded;
 	Animation* _pickAnimation;
 
-	const std::string TEXTURES_PATH = "../Game/Textures/";
+	static std::map<PickUpSound::SoundID, SoundEffect> _soundMap;
+	static bool _pickSoundLoaded;
+
+	const std::string TEXTURES_PATH = "../Game/Assets/Textures/Skeleton/";
+	const std::string SOUND_PATH = "../Game/Assets/";
 public:
 	PickUp();
 	~PickUp();
@@ -27,5 +37,7 @@ public:
 
 	std::string GetType() const;
 	Animation GetPickAnimation() const;
+	SoundEffect* GetPickSound() const;
 };
 
+#endif

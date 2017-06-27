@@ -1,18 +1,18 @@
 #include "Menu.h"
 #include <iostream>
 
-Menu::Menu()
+Menu::Menu() 
 {
 	_musicPlayer = new MusicPlayer();
 	_musicPlayer->Play(Music::MenuTheme);
 }
 
-Menu::Menu(sf::RenderWindow * window) : Game()
+Menu::Menu(sf::RenderWindow * window) 
 {
 	_window = window;
-	
 	_musicPlayer = new MusicPlayer();
 	_musicPlayer->Play(Music::MenuTheme);
+	Score::LoadHighScore();
 }
 
 
@@ -25,7 +25,7 @@ void Menu::Init()
 {
 	if (!_font.loadFromFile(FONTS_PATH + "iomanoid.ttf"))
 	{
-		std::cout << "no se cargo la fuente";
+		std::cerr << "no se cargo la fuente";
 	}
 	_text.setFont(_font);
 	_text.setString("Press Space to begin");
@@ -74,6 +74,7 @@ void Menu::Update()
 void Menu::Draw()
 {
 	_window->draw(_text);
+	Score::ShowHighScore(_window);
 }
 
 void Menu::Destroy()

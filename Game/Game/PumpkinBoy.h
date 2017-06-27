@@ -18,7 +18,7 @@ private:
 	bool _directionFlag, _isLookingRight;
 	Animation* _runAnimation;
 
-	const std::string TEXTURES_PATH = "../Game/Textures/Enemy/";
+	const std::string TEXTURES_PATH = "../Game/Assets/Textures/Enemy/";
 public:
 	PumpkinBoy();
 	PumpkinBoy(const sf::Vector2f& pos);

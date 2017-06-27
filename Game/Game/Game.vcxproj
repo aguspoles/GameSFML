@@ -173,6 +173,7 @@ copy $(SolutionDir)SFML-2.4.2\bin\*dll $(SolutionDir)Debug</Command>
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PumpkinBoy.cpp" />
     <ClCompile Include="Score.cpp" />
+    <ClCompile Include="SoundEffect.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
@@ -187,6 +188,7 @@ copy $(SolutionDir)SFML-2.4.2\bin\*dll $(SolutionDir)Debug</Command>
     <ClInclude Include="Player.h" />
     <ClInclude Include="PumpkinBoy.h" />
     <ClInclude Include="Score.h" />
+    <ClInclude Include="SoundEffect.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

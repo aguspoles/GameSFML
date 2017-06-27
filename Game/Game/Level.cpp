@@ -7,7 +7,6 @@ Level::Level()
 	_backgroundTexture.loadFromFile(TEXTURES_PATH + "BG.png");
 	_background.setTexture(_backgroundTexture);
 	_background.setScale(0.4, 0.524);
-
 	_musicPlayer = new MusicPlayer();
 }
 
@@ -134,6 +133,8 @@ void Level::CheckState()
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Tab))
 	{
+		Score::SaveHighScore();
+		Score::SCORE = 0;
 		_musicPlayer->Stop();
 		SwitchState(new Credits());
 	}

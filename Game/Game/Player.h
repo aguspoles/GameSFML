@@ -30,7 +30,7 @@ private:
 	Animation* _runAnimation;
 	Animation* _shootAnimation;
 
-	const std::string TEXTURES_PATH = "../Game/Textures/";
+	const std::string TEXTURES_PATH = "../Game/Assets/Textures/Player/";
 
 public:
 	Player();

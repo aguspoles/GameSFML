@@ -15,7 +15,7 @@ private:
 	sf::Texture _backgroundTexture;
 	MusicPlayer* _musicPlayer;
 
-	const std::string TEXTURES_PATH = "../Game/Textures/";
+	const std::string TEXTURES_PATH = "../Game/Assets/Textures/";
 
 public:
 	Level();

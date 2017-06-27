@@ -12,7 +12,6 @@ private:
 	Game* _currentState;
 	static sf::Clock _clock;
     static float _gameDeltaTime;
-	Score* _score;
 protected:
 	sf::RenderWindow* _window;
 public:

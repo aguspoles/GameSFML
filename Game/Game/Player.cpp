@@ -58,8 +58,13 @@ void Player::Draw() const
 
 void Player::Move()
 {
+	float spriteWith = _sprite.getGlobalBounds().width / 2;
+	float spriteHeight = _sprite.getGlobalBounds().height / 2;
+	float windowWith = _window->getSize().x;
+	float windowHeight = _window->getSize().y;
 	_isMoving = false;
-	if (_sprite.getPosition().x < (_window->getSize().x - _sprite.getGlobalBounds().width/2 + 30))
+
+	if (_sprite.getPosition().x < (windowWith - spriteWith+30))
 	{
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 		{
@@ -73,7 +78,7 @@ void Player::Move()
 		}
 	}
 
-	if (_sprite.getPosition().x > (_sprite.getGlobalBounds().width / 2)-30)
+	if (_sprite.getPosition().x > spriteWith-30)
 	{
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 		{
@@ -87,7 +92,7 @@ void Player::Move()
 		}
 	}
 
-	if (_sprite.getPosition().y < (_window->getSize().y - _sprite.getGlobalBounds().height/2 + 10))
+	if (_sprite.getPosition().y < (windowHeight - spriteHeight + 10))
 	{
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 		{
@@ -97,7 +102,7 @@ void Player::Move()
 		//_sprite.move(0, _movementSpeed);//gravity
 	}
 
-	if (_sprite.getPosition().y > _sprite.getGlobalBounds().height/2 -10)
+	if (_sprite.getPosition().y > spriteHeight -10)
 	{
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 		{
@@ -166,8 +171,9 @@ void Player::Collide(PickUp * pickup)
 	if (_sprite.getGlobalBounds().intersects(pickup->GetSprite()->getGlobalBounds()))
 	{
 		pickup->Animate();
+		pickup->GetPickSound()->Play();
 		if (pickup->GetPickAnimation().Ended())
 			pickup->SetVisible(false);
-		Score::HighScore += 5;
+		Score::SCORE += 5;
 	}
 }

@@ -68,6 +68,8 @@ void Credits::Init()
 	_text.setStyle(sf::Text::Bold | sf::Text::Italic);
 	_text.setOrigin(0, 0);
 	_text.setPosition(175, _window->getSize().y / 2 - _text.getCharacterSize());
+	//_text.setPosition(150, _window->getSize().y / 2 - _text.getCharacterSize() + 30);
+	//_text.setString("Assets from:");
 }
 
 void Credits::Destroy()
