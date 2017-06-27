@@ -1,6 +1,6 @@
 #include "Player.h"
 
-std::map<std::string, sf::Texture> Player::_textureMap;
+std::map<PlayerTextures::TextureID, sf::Texture> Player::_textureMap;
 const float Player::Speed = 150;
 
 Player::Player() : _movementSpeed(0), _isMoving(false), _isDestroy(false), 
@@ -10,12 +10,12 @@ _isFighting(false), _lookingRight(true)
 	_sprite.scale(sf::Vector2f(0.2, 0.2));
 	_sprite.setPosition(50, 50);
 
-	_textureMap["Idle"] = sf::Texture(); 
-	_textureMap["Idle"].loadFromFile("../Game/Textures/Idle.png");
-	_textureMap["Run"] = sf::Texture();
-	_textureMap["Run"].loadFromFile("../Game/Textures/Run.png");
-	_textureMap["Shoot"] = sf::Texture();
-	_textureMap["Shoot"].loadFromFile("../Game/Textures/Shoot.png");
+	_textureMap[PlayerTextures::IDLE] = sf::Texture();
+	_textureMap[PlayerTextures::IDLE].loadFromFile(TEXTURES_PATH + "Idle.png");
+	_textureMap[PlayerTextures::RUN] = sf::Texture();
+	_textureMap[PlayerTextures::RUN].loadFromFile(TEXTURES_PATH + "Run.png");
+	_textureMap[PlayerTextures::SHOOT] = sf::Texture();
+	_textureMap[PlayerTextures::SHOOT].loadFromFile(TEXTURES_PATH + "Shoot.png");
 
 	_runAnimation = new Animation(&_sprite, sf::Vector2i(567, 556), 8, 0.5, true);
 	_idleAnimation = new Animation(&_sprite, sf::Vector2i(567, 556), 10, 1, true);
@@ -89,12 +89,12 @@ void Player::Move()
 
 	if (_sprite.getPosition().y < (_window->getSize().y - _sprite.getGlobalBounds().height/2 + 10))
 	{
-		/*if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
 		{
 			_sprite.move(0, _movementSpeed);
 			_isMoving = true;
-		}*/
-		_sprite.move(0, _movementSpeed);
+		}
+		//_sprite.move(0, _movementSpeed);//gravity
 	}
 
 	if (_sprite.getPosition().y > _sprite.getGlobalBounds().height/2 -10)
@@ -118,13 +118,13 @@ void Player::Animate()
 {
 	if (_isMoving)
 	{
-		_runAnimation->Play(&_textureMap["Run"]);
+		_runAnimation->Play(&_textureMap[PlayerTextures::RUN]);
 	}
 	else if (_isFighting)
-		_shootAnimation->Play(&_textureMap["Shoot"]);
+		_shootAnimation->Play(&_textureMap[PlayerTextures::SHOOT]);
 	else
 	{
-		_idleAnimation->Play(&_textureMap["Idle"]);
+		_idleAnimation->Play(&_textureMap[PlayerTextures::IDLE]);
 	}
 }
 
@@ -168,5 +168,6 @@ void Player::Collide(PickUp * pickup)
 		pickup->Animate();
 		if (pickup->GetPickAnimation().Ended())
 			pickup->SetVisible(false);
+		Score::HighScore += 5;
 	}
 }

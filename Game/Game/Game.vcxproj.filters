@@ -66,11 +66,17 @@
     <ClCompile Include="Animation.cpp">
       <Filter>Archivos de código fuente\Others</Filter>
     </ClCompile>
-    <ClCompile Include="PickUp.cpp">
-      <Filter>Archivos de código fuente</Filter>
+    <ClCompile Include="Credits.cpp">
+      <Filter>Archivos de código fuente\States</Filter>
     </ClCompile>
     <ClCompile Include="MusicPlayer.cpp">
-      <Filter>Archivos de código fuente</Filter>
+      <Filter>Archivos de código fuente\Others</Filter>
+    </ClCompile>
+    <ClCompile Include="Score.cpp">
+      <Filter>Archivos de código fuente\Others</Filter>
+    </ClCompile>
+    <ClCompile Include="PickUp.cpp">
+      <Filter>Archivos de código fuente\Entities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -98,11 +104,17 @@
     <ClInclude Include="Animation.h">
       <Filter>Archivos de encabezado\Others</Filter>
     </ClInclude>
-    <ClInclude Include="PickUp.h">
-      <Filter>Archivos de encabezado</Filter>
+    <ClInclude Include="Credits.h">
+      <Filter>Archivos de encabezado\States</Filter>
     </ClInclude>
     <ClInclude Include="MusicPlayer.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Archivos de encabezado\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="PickUp.h">
+      <Filter>Archivos de encabezado\Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="Score.h">
+      <Filter>Archivos de encabezado\Others</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

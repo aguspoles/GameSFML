@@ -11,6 +11,8 @@ private:
 	sf::Text _text;
 	sf::Font _font;
 	MusicPlayer* _musicPlayer;
+	
+	const std::string FONTS_PATH = "../Game/Assets/Fonts/";
 
 public:
 	Menu();

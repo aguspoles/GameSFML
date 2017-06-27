@@ -3,17 +3,6 @@
 
 Menu::Menu()
 {
-	if (!_font.loadFromFile("../Game/Assets/Fonts/iomanoid.ttf"))
-	{
-		std::cout << "no se cargo la fuente";
-	}
-	_text.setFont(_font);
-	_text.setString("Hello world");
-	_text.setCharacterSize(24); // in pixels, not points!
-	_text.setFillColor(sf::Color::Red);
-	_text.setStyle(sf::Text::Bold | sf::Text::Italic | sf::Text::Underlined);
-	_text.setPosition(175, _window->getSize().y / 2 - _text.getCharacterSize());
-
 	_musicPlayer = new MusicPlayer();
 	_musicPlayer->Play(Music::MenuTheme);
 }
@@ -21,18 +10,7 @@ Menu::Menu()
 Menu::Menu(sf::RenderWindow * window) : Game()
 {
 	_window = window;
-	if (!_font.loadFromFile("../Game/Assets/Fonts/iomanoid.ttf"))
-	{
-		std::cout << "no se cargo la fuente";
-	}
-	_text.setFont(_font);
-	_text.setString("Press Space to begin");
-	_text.setCharacterSize(50); // in pixels, not points!
-	_text.setFillColor(sf::Color::Red);
-	_text.setStyle(sf::Text::Bold | sf::Text::Italic | sf::Text::Underlined);
-	_text.setOrigin(0, 0);
-	_text.setPosition(175, _window->getSize().y / 2 - _text.getCharacterSize());
-
+	
 	_musicPlayer = new MusicPlayer();
 	_musicPlayer->Play(Music::MenuTheme);
 }
@@ -45,7 +23,17 @@ Menu::~Menu()
 
 void Menu::Init()
 {
-
+	if (!_font.loadFromFile(FONTS_PATH + "iomanoid.ttf"))
+	{
+		std::cout << "no se cargo la fuente";
+	}
+	_text.setFont(_font);
+	_text.setString("Press Space to begin");
+	_text.setCharacterSize(50); // in pixels, not points!
+	_text.setFillColor(sf::Color::Red);
+	_text.setStyle(sf::Text::Bold | sf::Text::Italic | sf::Text::Underlined);
+	_text.setOrigin(0, 0);
+	_text.setPosition(175, _window->getSize().y / 2 - _text.getCharacterSize());
 }
 
 void Menu::Run()
@@ -78,6 +66,7 @@ void Menu::Update()
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 	{
+	    _musicPlayer->Stop();
 		SwitchState(new Level());
 	}
 }

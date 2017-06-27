@@ -2,11 +2,13 @@
 
 #define CANT_ENEMIES 10
 
-Level::Level() 
+Level::Level()
 {
-	_backgroundTexture.loadFromFile("../Game/Textures/BG.png");
+	_backgroundTexture.loadFromFile(TEXTURES_PATH + "BG.png");
 	_background.setTexture(_backgroundTexture);
 	_background.setScale(0.4, 0.524);
+
+	_musicPlayer = new MusicPlayer();
 }
 
 
@@ -18,6 +20,8 @@ Level::~Level()
 			delete entitie;
 	}
 	_entities.clear();
+
+	if (_musicPlayer) delete _musicPlayer;
 }
 
 void Level::Init()
@@ -54,6 +58,7 @@ void Level::Init()
 		entitie->SetWindow(_window);
 		entitie->Init();
 	}
+	_musicPlayer->Play(Music::LevelTheme);
 }
 
 void Level::Run()
@@ -86,6 +91,7 @@ void Level::Run()
 
 void Level::Update()
 {
+	CheckState();
 	for(std::list<Entity*>::iterator it = _entities.begin(); it != _entities.end(); it++)
 	{
 		if (*it && (*it)->IsVisible())
@@ -116,10 +122,21 @@ void Level::Draw()
 		if (entitie)
 			entitie->Draw();
 	}
+	Score::ShowScore(_window);
 }
 
 void Level::Destroy()
 {
 	
 }
+
+void Level::CheckState()
+{
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Tab))
+	{
+		_musicPlayer->Stop();
+		SwitchState(new Credits());
+	}
+}
+
 

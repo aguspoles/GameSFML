@@ -6,7 +6,7 @@
 
 namespace Music
 {
-	enum ID {MenuTheme};
+	enum ID {MenuTheme, LevelTheme};
 }
 
 class MusicPlayer
@@ -23,6 +23,8 @@ private:
 	sf::Music _music;
 	std::map<Music::ID, std::string> _fileName;
 	float _volume;
+
+	const std::string MUSIC_PATH = "../Game/Assets/";
 };
 
 #endif

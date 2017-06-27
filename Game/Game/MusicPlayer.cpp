@@ -4,7 +4,8 @@
 
 MusicPlayer::MusicPlayer() :  _fileName(), _volume(100)
 {
-	_fileName[Music::MenuTheme] = "../Game/Assets/MenuTheme.wav";
+	_fileName[Music::MenuTheme] = MUSIC_PATH + "MenuTheme.wav";
+	_fileName[Music::LevelTheme] = MUSIC_PATH + "LevelTheme.wav";
 }
 
 

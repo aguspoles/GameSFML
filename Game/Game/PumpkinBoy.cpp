@@ -1,35 +1,35 @@
 #include "PumpkinBoy.h"
 
-std::map<std::string, sf::Texture> PumpkinBoy::_textureMap;
-std::map<std::string, bool> PumpkinBoy::_texturesLoaded;
+std::map<PumpKinTextures::TextureID, sf::Texture> PumpkinBoy::_textureMap;
+std::map<PumpKinTextures::TextureID, bool> PumpkinBoy::_texturesLoaded;
 const float PumpkinBoy::Speed = 50;
 
 PumpkinBoy::PumpkinBoy() : _directionFlag(true), _isLookingRight(true)
 {
 	_sprite.setOrigin(290, 381);
 	_sprite.scale(0.1, 0.1);
-	if (_texturesLoaded["Run"] == false)//lo cargamos solo para el primer enemigo
+	if (_texturesLoaded[PumpKinTextures::RUN] == false)//lo cargamos solo para el primer enemigo
 	{
-		_textureMap["Run"] = sf::Texture();
-		_textureMap["Run"].loadFromFile("../Game/Textures/Enemy/Run.png");
-		_texturesLoaded["Run"] = true;
+		_textureMap[PumpKinTextures::RUN] = sf::Texture();
+		_textureMap[PumpKinTextures::RUN].loadFromFile(TEXTURES_PATH + "Run.png");
+		_texturesLoaded[PumpKinTextures::RUN] = true;
 	}
 	_runAnimation = new Animation(&_sprite, sf::Vector2i(579, 763), 8, 0.5, true);
-	_sprite.setTexture(_textureMap["Run"]);
+	_sprite.setTexture(_textureMap[PumpKinTextures::RUN]);
 }
 
 PumpkinBoy::PumpkinBoy(const sf::Vector2f & pos) : Enemy(pos)
 {
 	_sprite.setOrigin(290, 381);
 	_sprite.scale(0.1, 0.1);
-	if (_texturesLoaded["Run"] == false)//lo cargamos solo para el primer enemigo
+	if (_texturesLoaded[PumpKinTextures::RUN] == false)//lo cargamos solo para el primer enemigo
 	{
-		_textureMap["Run"] = sf::Texture();
-		_textureMap["Run"].loadFromFile("../Game/Textures/Enemy/Run.png");
-		_texturesLoaded["Run"] = true;
+		_textureMap[PumpKinTextures::RUN] = sf::Texture();
+		_textureMap[PumpKinTextures::RUN].loadFromFile(TEXTURES_PATH + "Run.png");
+		_texturesLoaded[PumpKinTextures::RUN] = true;
 	}
 	_runAnimation = new Animation(&_sprite, sf::Vector2i(579, 763), 8, 0.5, true);
-	_sprite.setTexture(_textureMap["Run"]);
+	_sprite.setTexture(_textureMap[PumpKinTextures::RUN]);
 }
 
 
@@ -83,7 +83,7 @@ void PumpkinBoy::Move()
 
 void PumpkinBoy::Animate()
 {
-	_runAnimation->Play(&_textureMap["Run"]);
+	_runAnimation->Play(&_textureMap[PumpKinTextures::RUN]);
 }
 
 //std::string PumpkinBoy::GetType() const

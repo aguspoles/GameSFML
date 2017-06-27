@@ -5,15 +5,21 @@
 #include "Entity.h"
 #include "Animation.h"
 #include "PickUp.h"
+#include "Score.h"
 #if DEBUG
 #include <iostream>
 #endif
+
+namespace PlayerTextures
+{
+	enum TextureID{IDLE, RUN, SHOOT};
+}
 
 class Player :
 	public Entity
 {
 private:
-	static std::map<std::string, sf::Texture> _textureMap;
+	static std::map<PlayerTextures::TextureID, sf::Texture> _textureMap;
 	static const float Speed;
 	float _movementSpeed;
 	bool _isMoving;
@@ -23,6 +29,8 @@ private:
 	Animation* _idleAnimation;
 	Animation* _runAnimation;
 	Animation* _shootAnimation;
+
+	const std::string TEXTURES_PATH = "../Game/Textures/";
 
 public:
 	Player();
