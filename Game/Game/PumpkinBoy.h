@@ -11,18 +11,18 @@ class PumpkinBoy :
 	public Enemy
 {
 private:
-	static std::map<PumpKinTextures::TextureID, sf::Texture> _textureMap;
-	static std::map<PumpKinTextures::TextureID, bool> _texturesLoaded;//para saber si ya cargue la textura en _texturemap
 	float _elapsedSpeed;
 	static const float Speed;
 	bool _directionFlag, _isLookingRight;
 	Animation* _runAnimation;
 
-	const std::string TEXTURES_PATH = "../Game/Assets/Textures/Enemy/";
 public:
 	PumpkinBoy();
 	PumpkinBoy(const sf::Vector2f& pos);
 	~PumpkinBoy();
+
+	static const std::string TEXTURES_PATH;
+	static std::map<PumpKinTextures::TextureID, sf::Texture> TextureMap;
 
 	void Init();
 	void Update();

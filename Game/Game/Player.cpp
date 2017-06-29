@@ -1,6 +1,7 @@
 #include "Player.h"
 
-std::map<PlayerTextures::TextureID, sf::Texture> Player::_textureMap;
+std::map<PlayerTextures::TextureID, sf::Texture> Player::TextureMap;
+const std::string Player::TEXTURES_PATH = "../Game/Assets/Textures/Player/";
 const float Player::Speed = 150;
 
 Player::Player() : _movementSpeed(0), _isMoving(false), _isDestroy(false), 
@@ -9,13 +10,6 @@ _isFighting(false), _lookingRight(true)
 	_sprite.setOrigin(283.5,278);
 	_sprite.scale(sf::Vector2f(0.2, 0.2));
 	_sprite.setPosition(50, 50);
-
-	_textureMap[PlayerTextures::IDLE] = sf::Texture();
-	_textureMap[PlayerTextures::IDLE].loadFromFile(TEXTURES_PATH + "Idle.png");
-	_textureMap[PlayerTextures::RUN] = sf::Texture();
-	_textureMap[PlayerTextures::RUN].loadFromFile(TEXTURES_PATH + "Run.png");
-	_textureMap[PlayerTextures::SHOOT] = sf::Texture();
-	_textureMap[PlayerTextures::SHOOT].loadFromFile(TEXTURES_PATH + "Shoot.png");
 
 	_runAnimation = new Animation(&_sprite, sf::Vector2i(567, 556), 8, 0.5, true);
 	_idleAnimation = new Animation(&_sprite, sf::Vector2i(567, 556), 10, 1, true);
@@ -123,13 +117,13 @@ void Player::Animate()
 {
 	if (_isMoving)
 	{
-		_runAnimation->Play(&_textureMap[PlayerTextures::RUN]);
+		_runAnimation->Play(&TextureMap[PlayerTextures::RUN]);
 	}
 	else if (_isFighting)
-		_shootAnimation->Play(&_textureMap[PlayerTextures::SHOOT]);
+		_shootAnimation->Play(&TextureMap[PlayerTextures::SHOOT]);
 	else
 	{
-		_idleAnimation->Play(&_textureMap[PlayerTextures::IDLE]);
+		_idleAnimation->Play(&TextureMap[PlayerTextures::IDLE]);
 	}
 }
 

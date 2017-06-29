@@ -27,6 +27,8 @@ public:
 	void Init();
 	void Destroy();
 
+	void LoadAssets();
+
 	void CheckState();
 };
 

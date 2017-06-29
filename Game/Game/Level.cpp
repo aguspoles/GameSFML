@@ -25,6 +25,8 @@ Level::~Level()
 
 void Level::Init()
 {
+	LoadAssets();
+
 	srand(time(NULL));
 	int posX;
 	int posY;
@@ -127,6 +129,27 @@ void Level::Draw()
 void Level::Destroy()
 {
 	
+}
+
+void Level::LoadAssets()
+{
+	Player::TextureMap[PlayerTextures::IDLE] = sf::Texture();
+	Player::TextureMap[PlayerTextures::IDLE].loadFromFile(Player::TEXTURES_PATH + "Idle.png");
+	Player::TextureMap[PlayerTextures::RUN] = sf::Texture();
+	Player::TextureMap[PlayerTextures::RUN].loadFromFile(Player::TEXTURES_PATH + "Run.png");
+	Player::TextureMap[PlayerTextures::SHOOT] = sf::Texture();
+	Player::TextureMap[PlayerTextures::SHOOT].loadFromFile(Player::TEXTURES_PATH + "Shoot.png");
+
+	PumpkinBoy::TextureMap[PumpKinTextures::RUN] = sf::Texture();
+	PumpkinBoy::TextureMap[PumpKinTextures::RUN].loadFromFile(PumpkinBoy::TEXTURES_PATH + "Run.png");
+
+	PickUp::TextureMap[PickUpAssets::SKELETON] = sf::Texture();
+	PickUp::TextureMap[PickUpAssets::SKELETON].loadFromFile(PickUp::TEXTURES_PATH + "Skeleton.png");
+
+	PickUp::TextureMap[PickUpAssets::PICK] = sf::Texture();
+	PickUp::TextureMap[PickUpAssets::PICK].loadFromFile(PickUp::TEXTURES_PATH + "PickSkeleton.png");
+	PickUp::SoundMap[PickUpAssets::PICKSOUND] = SoundEffect();
+	PickUp::SoundMap[PickUpAssets::PICKSOUND].LoadSound(PickUp::SOUND_PATH + "jump_05.wav");
 }
 
 void Level::CheckState()

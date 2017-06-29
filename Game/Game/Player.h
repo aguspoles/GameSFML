@@ -19,7 +19,6 @@ class Player :
 	public Entity
 {
 private:
-	static std::map<PlayerTextures::TextureID, sf::Texture> _textureMap;
 	static const float Speed;
 	float _movementSpeed;
 	bool _isMoving;
@@ -30,12 +29,14 @@ private:
 	Animation* _runAnimation;
 	Animation* _shootAnimation;
 
-	const std::string TEXTURES_PATH = "../Game/Assets/Textures/Player/";
 
 public:
 	Player();
 	Player(const std::string& texture);
 	~Player();
+
+	static std::map<PlayerTextures::TextureID, sf::Texture> TextureMap;
+	static const std::string TEXTURES_PATH;
 
 	void Init();
 	void Update();

@@ -38,8 +38,9 @@ void SoundEffect::LoadSound(std::string path)
 {
 	if (!_buffer.loadFromFile(path))
 	{
-		if (DEBUG)
+#ifdef DEBUG
 			std::cerr << "Sound " + path + " cloud not be loaded.";
+#endif
 	}
 	else
 		_sound.setBuffer(_buffer);

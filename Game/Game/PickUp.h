@@ -4,31 +4,26 @@
 #include "Animation.h"
 #include "SoundEffect.h"
 
-namespace PickUpTextures
+namespace PickUpAssets
 {
 	enum TextureID { SKELETON, PICK };
-}
-namespace PickUpSound
-{
-	enum SoundID { PICK };
+	enum SoundID { PICKSOUND };
 }
 
 class PickUp :
 	public Entity
 {
 private:
-	static std::map<PickUpTextures::TextureID, sf::Texture> _textureMap;
-	static std::map<PickUpTextures::TextureID, bool> _texturesLoaded;
-	Animation* _pickAnimation;
+    Animation* _pickAnimation;
 
-	static std::map<PickUpSound::SoundID, SoundEffect> _soundMap;
-	static bool _pickSoundLoaded;
-
-	const std::string TEXTURES_PATH = "../Game/Assets/Textures/Skeleton/";
-	const std::string SOUND_PATH = "../Game/Assets/";
 public:
 	PickUp();
 	~PickUp();
+
+	static std::map<PickUpAssets::TextureID, sf::Texture> TextureMap;
+	static std::map<PickUpAssets::SoundID, SoundEffect> SoundMap;
+	static const std::string TEXTURES_PATH;
+	static const std::string SOUND_PATH;
 
 	void Init();
 	void Draw() const;

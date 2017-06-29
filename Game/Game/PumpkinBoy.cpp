@@ -1,7 +1,7 @@
 #include "PumpkinBoy.h"
 
-std::map<PumpKinTextures::TextureID, sf::Texture> PumpkinBoy::_textureMap;
-std::map<PumpKinTextures::TextureID, bool> PumpkinBoy::_texturesLoaded;
+std::map<PumpKinTextures::TextureID, sf::Texture> PumpkinBoy::TextureMap;
+const std::string PumpkinBoy::TEXTURES_PATH = "../Game/Assets/Textures/Enemy/";
 const float PumpkinBoy::Speed = 50;
 
 PumpkinBoy::PumpkinBoy() : _directionFlag(true), _isLookingRight(true)
@@ -10,7 +10,7 @@ PumpkinBoy::PumpkinBoy() : _directionFlag(true), _isLookingRight(true)
 	_sprite.scale(0.1, 0.1);
 
 	_runAnimation = new Animation(&_sprite, sf::Vector2i(579, 763), 8, 0.5, true);
-	_sprite.setTexture(_textureMap[PumpKinTextures::RUN]);
+	_sprite.setTexture(TextureMap[PumpKinTextures::RUN]);
 }
 
 PumpkinBoy::PumpkinBoy(const sf::Vector2f & pos) : Enemy(pos)
@@ -19,7 +19,7 @@ PumpkinBoy::PumpkinBoy(const sf::Vector2f & pos) : Enemy(pos)
 	_sprite.scale(0.1, 0.1);
 
 	_runAnimation = new Animation(&_sprite, sf::Vector2i(579, 763), 8, 0.5, true);
-	_sprite.setTexture(_textureMap[PumpKinTextures::RUN]);
+	_sprite.setTexture(TextureMap[PumpKinTextures::RUN]);
 }
 
 
@@ -31,12 +31,7 @@ PumpkinBoy::~PumpkinBoy()
 
 void PumpkinBoy::Init()
 {
-	if (_texturesLoaded[PumpKinTextures::RUN] == false)//lo cargamos solo para el primer enemigo
-	{
-		_textureMap[PumpKinTextures::RUN] = sf::Texture();
-		_textureMap[PumpKinTextures::RUN].loadFromFile(TEXTURES_PATH + "Run.png");
-		_texturesLoaded[PumpKinTextures::RUN] = true;
-	}
+
 }
 
 void PumpkinBoy::Update()
@@ -79,7 +74,7 @@ void PumpkinBoy::Move()
 
 void PumpkinBoy::Animate()
 {
-	_runAnimation->Play(&_textureMap[PumpKinTextures::RUN]);
+	_runAnimation->Play(&TextureMap[PumpKinTextures::RUN]);
 }
 
 //std::string PumpkinBoy::GetType() const
