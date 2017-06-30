@@ -87,15 +87,14 @@
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>$(SolutionDir)SFML-2.4.2\lib;$(LibraryPath);$(SolutionDir)VLD\lib\Win32</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-system-d.lib;opengl32.lib;winmm.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-audio-d.lib;freetype.lib;jpeg.lib;sfml-main-d.lib;%(AdditionalDependencies);vld.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib</AdditionalDependencies>
+      <AdditionalDependencies>sfml-system-d.lib;opengl32.lib;winmm.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-audio-d.lib;freetype.lib;jpeg.lib;sfml-main-d.lib;%(AdditionalDependencies);vld.lib;flac.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;sfml-network-d.lib</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
     <PostBuildEvent>
       <Command>copy $(SolutionDir)SFML-2.4.2\bin\*dll $(SolutionDir)Debug
 copy $(SolutionDir)VLD\bin\Win32\*dll $(SolutionDir)Debug
 copy $(SolutionDir)VLD\bin\Win32\vld_x86.pdb $(SolutionDir)Debug
-copy $(SolutionDir)VLD\bin\Win32\Microsoft.DTfW.DHL.manifest $(SolutionDir)Debug
-</Command>
+copy $(SolutionDir)VLD\bin\Win32\Microsoft.DTfW.DHL.manifest $(SolutionDir)Debug</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -125,17 +124,18 @@ copy $(SolutionDir)SFML-2.4.2\bin\*dll $(SolutionDir)Debug</Command>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(SolutionDir)SFML-2.4.2\Include;$(IncludePath)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <PreprocessorDefinitions>_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>SFML_STATIC;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalLibraryDirectories>$(SolutionDir)SFML-2.4.2\lib;$(LibraryPath)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-system.lib;opengl32.lib;winmm.lib;sfml-window.lib;sfml-graphics.lib;freetype.lib;jpeg.lib;%(AdditionalDependencies);sfml-main.lib;sfml-audio.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib</AdditionalDependencies>
+      <AdditionalDependencies>sfml-system-s.lib;opengl32.lib;openal32.lib;ws2_32.lib;winmm.lib;sfml-window-s.lib;sfml-graphics-s.lib;freetype.lib;jpeg.lib;%(AdditionalDependencies);sfml-main.lib;sfml-audio-s.lib;vorbisenc.lib;vorbisfile.lib;vorbis.lib;ogg.lib;flac.lib;sfml-network-s.lib;gdi32.lib</AdditionalDependencies>
       <SubSystem>Windows</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(SolutionDir)SFML-2.4.2\bin\*dll $(SolutionDir)Release</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -167,6 +167,7 @@ copy $(SolutionDir)SFML-2.4.2\bin\*dll $(SolutionDir)Debug</Command>
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Level.cpp" />
+    <ClCompile Include="LoadScreen.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MusicPlayer.cpp" />
@@ -175,6 +176,7 @@ copy $(SolutionDir)SFML-2.4.2\bin\*dll $(SolutionDir)Debug</Command>
     <ClCompile Include="PumpkinBoy.cpp" />
     <ClCompile Include="Score.cpp" />
     <ClCompile Include="SoundEffect.cpp" />
+    <ClCompile Include="Zombie.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
@@ -183,6 +185,7 @@ copy $(SolutionDir)SFML-2.4.2\bin\*dll $(SolutionDir)Debug</Command>
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Level.h" />
+    <ClInclude Include="LoadScreen.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MusicPlayer.h" />
     <ClInclude Include="PickUp.h" />
@@ -190,6 +193,7 @@ copy $(SolutionDir)SFML-2.4.2\bin\*dll $(SolutionDir)Debug</Command>
     <ClInclude Include="PumpkinBoy.h" />
     <ClInclude Include="Score.h" />
     <ClInclude Include="SoundEffect.h" />
+    <ClInclude Include="Zombie.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

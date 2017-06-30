@@ -8,6 +8,11 @@
 
 class SoundEffect
 {
+private:
+	sf::SoundBuffer _buffer;
+	sf::Sound _sound;
+	float _volume;
+
 public:
 	SoundEffect();
 	~SoundEffect();
@@ -17,10 +22,6 @@ public:
 	void SetPaused(bool paused);
 	void SetVolume(float volume);
 	void LoadSound(std::string path);
-private:
-	sf::SoundBuffer _buffer;
-	sf::Sound _sound;
-	float _volume;
 };
 
 #endif

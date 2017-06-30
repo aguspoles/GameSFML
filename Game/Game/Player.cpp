@@ -1,14 +1,14 @@
 #include "Player.h"
 
 std::map<PlayerTextures::TextureID, sf::Texture> Player::TextureMap;
-const std::string Player::TEXTURES_PATH = "../Game/Assets/Textures/Player/";
-const float Player::Speed = 150;
+const std::string Player::TEXTURES_PATH = "../Assets/Textures/Player/";
+const float Player::Speed = 130;
 
 Player::Player() : _movementSpeed(0), _isMoving(false), _isDestroy(false), 
 _isFighting(false), _lookingRight(true)
 {
 	_sprite.setOrigin(283.5,278);
-	_sprite.scale(sf::Vector2f(0.2, 0.2));
+	_sprite.scale(sf::Vector2f(0.15, 0.15));
 	_sprite.setPosition(50, 50);
 
 	_runAnimation = new Animation(&_sprite, sf::Vector2i(567, 556), 8, 0.5, true);
@@ -167,7 +167,10 @@ void Player::Collide(PickUp * pickup)
 		pickup->Animate();
 		pickup->GetPickSound()->Play();
 		if (pickup->GetPickAnimation().Ended())
+		{
 			pickup->SetVisible(false);
+		    Score::PickUpsLeft--;
+		}
 		Score::SCORE += 5;
 	}
 }

@@ -1,8 +1,8 @@
 #include "Level.h"
 
-#define CANT_ENEMIES 10
+#define CANT_ENEMIES 5
 
-Level::Level()
+Level::Level() 
 {
 	_backgroundTexture.loadFromFile(TEXTURES_PATH + "BG.png");
 	_background.setTexture(_backgroundTexture);
@@ -25,40 +25,14 @@ Level::~Level()
 
 void Level::Init()
 {
-	LoadAssets();
-
-	srand(time(NULL));
-	int posX;
-	int posY;
-	Player* _player = new Player();
-	_entities.push_back(_player);
-	Enemy* enemies[CANT_ENEMIES];
-	PickUp* picks[CANT_ENEMIES];
-	for (size_t i = 0; i < CANT_ENEMIES; i++)
-	{
-		enemies[i] = new PumpkinBoy();
-		picks[i] = new PickUp();
-		_entities.push_back(enemies[i]);
-		_entities.push_back(picks[i]);
-	}
-	int randomX1 = (int)(enemies[0]->GetSprite()->getGlobalBounds().width);
-	int randomX = _window->getSize().x - randomX1;
-	int randomY1 = (int)(enemies[0]->GetSprite()->getGlobalBounds().height);
-	int randomY = _window->getSize().y - randomY1;
-	for (int i = 0; i < CANT_ENEMIES; i++)
-	{
-		posX = randomX1 + rand() % randomX;
-		posY = randomX1 + rand() % randomY;
-		enemies[i]->GetSprite()->setPosition(posX, posY);
-		picks[i]->GetSprite()->setPosition(posX, posY);
-		enemies[i] = NULL;//el borrado lo hago desde el destructor;
-	}
+	AddEntities();
 
 	for each(Entity* entitie in _entities)
 	{
 		entitie->SetWindow(_window);
 		entitie->Init();
 	}
+
 	_musicPlayer->Play(Music::LevelTheme);
 }
 
@@ -102,6 +76,13 @@ void Level::Update()
 			{
 				Player *p = (Player*)*it;
 				p->PlayerCollision(_entities);
+				if (!p->IsVisible() || Score::PickUpsLeft == 0)
+				{
+					Score::SaveHighScore();
+					Score::SCORE = 0;
+					_musicPlayer->Stop();
+					SwitchState(new  Credits());
+				}
 			}
 		}
 		else
@@ -131,35 +112,60 @@ void Level::Destroy()
 	
 }
 
-void Level::LoadAssets()
+void Level::AddEntities()
 {
-	Player::TextureMap[PlayerTextures::IDLE] = sf::Texture();
-	Player::TextureMap[PlayerTextures::IDLE].loadFromFile(Player::TEXTURES_PATH + "Idle.png");
-	Player::TextureMap[PlayerTextures::RUN] = sf::Texture();
-	Player::TextureMap[PlayerTextures::RUN].loadFromFile(Player::TEXTURES_PATH + "Run.png");
-	Player::TextureMap[PlayerTextures::SHOOT] = sf::Texture();
-	Player::TextureMap[PlayerTextures::SHOOT].loadFromFile(Player::TEXTURES_PATH + "Shoot.png");
+	//random
+	srand(time(NULL));
+	int posX;
+	int posY;
+	Player* _player = new Player();
+	_entities.push_back(_player);
 
-	PumpkinBoy::TextureMap[PumpKinTextures::RUN] = sf::Texture();
-	PumpkinBoy::TextureMap[PumpKinTextures::RUN].loadFromFile(PumpkinBoy::TEXTURES_PATH + "Run.png");
+	Enemy* enemies[CANT_ENEMIES * 2];
+	PickUp* picks[CANT_ENEMIES];
+	for (size_t i = 0; i < CANT_ENEMIES; i++)
+	{
+		enemies[i] = new PumpkinBoy();
+		picks[i] = new PickUp();
+		_entities.push_back(enemies[i]);
+		_entities.push_back(picks[i]);
+	}
+	for (size_t i = CANT_ENEMIES; i < CANT_ENEMIES * 2; i++)
+	{
+		enemies[i] = new Zombie();
+		_entities.push_back(enemies[i]);
+	}
 
-	PickUp::TextureMap[PickUpAssets::SKELETON] = sf::Texture();
-	PickUp::TextureMap[PickUpAssets::SKELETON].loadFromFile(PickUp::TEXTURES_PATH + "Skeleton.png");
+	int randomX1 = (int)(enemies[0]->GetSprite()->getGlobalBounds().width);
+	int randomX = _window->getSize().x - randomX1;
+	int randomY1 = (int)(enemies[0]->GetSprite()->getGlobalBounds().height);
+	int randomY = _window->getSize().y - randomY1;
 
-	PickUp::TextureMap[PickUpAssets::PICK] = sf::Texture();
-	PickUp::TextureMap[PickUpAssets::PICK].loadFromFile(PickUp::TEXTURES_PATH + "PickSkeleton.png");
-	PickUp::SoundMap[PickUpAssets::PICKSOUND] = SoundEffect();
-	PickUp::SoundMap[PickUpAssets::PICKSOUND].LoadSound(PickUp::SOUND_PATH + "jump_05.wav");
+	for (int i = 0; i < CANT_ENEMIES; i++)
+	{
+		posX = randomX1 + rand() % randomX;
+		posY = randomX1 + rand() % randomY;
+		enemies[i]->GetSprite()->setPosition(posX, posY);
+		picks[i]->GetSprite()->setPosition(posX, posY);
+		enemies[i] = NULL;//el borrado lo hago desde el destructor;
+	}
+	for (size_t i = CANT_ENEMIES; i < CANT_ENEMIES * 2; i++)
+	{
+		posX = randomX1 + rand() % randomX;
+		posY = randomX1 + rand() % randomY;
+		enemies[i]->GetSprite()->setPosition(posX, posY);
+		enemies[i] = NULL;
+	}
 }
 
 void Level::CheckState()
 {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Tab))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape))
 	{
 		Score::SaveHighScore();
 		Score::SCORE = 0;
 		_musicPlayer->Stop();
-		SwitchState(new Credits());
+		SwitchState(new Menu());
 	}
 }
 

@@ -2,15 +2,18 @@
 
 int Score::SCORE = 0;
 int Score::HighScore = 0;
+int Score::PickUpsLeft = 5;
 sf::Text Score::_text;
 sf::Font Score::_font;
-const std::string Score::FONTS_PATH = "../Game/Assets/Fonts/";
+const std::string Score::FONTS_PATH = "../Assets/Fonts/";
 
 Score::Score()
 {
 	if (!_font.loadFromFile(FONTS_PATH + "iomanoid.ttf"))
 	{
+#ifdef DEBUG
 		std::cerr << "no se cargo la fuente";
+#endif
 	}
 	_text.setFont(_font);
 	_text.setString("Score " + std::to_string(SCORE));
@@ -43,12 +46,16 @@ void Score::SaveHighScore()
 	if (SCORE > HighScore)
 	{
 		std::ofstream saveFile;
-		saveFile.open("../save.txt");
+		saveFile.open("../Assets/save.txt");
 		if (saveFile.fail())
+		{
+#ifdef DEBUG
 			std::cerr << "Unable to open file" << std::endl;
+#endif
+		}
 		else
 		{
-			saveFile << HighScore;
+			saveFile << SCORE;
 			saveFile.close();
 		}
 	}
@@ -57,9 +64,13 @@ void Score::SaveHighScore()
 void Score::LoadHighScore()
 {
 	std::ifstream loadFile;
-	loadFile.open("../save.txt");
+	loadFile.open("../Assets/save.txt");
 	if (loadFile.fail())
+	{
+#ifdef DEBUG
 		std::cerr << "Unable to open file" << std::endl;
+#endif
+	}
 	else
 	{
 		loadFile >> HighScore;

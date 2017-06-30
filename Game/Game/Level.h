@@ -5,6 +5,7 @@
 #include "PumpkinBoy.h"
 #include "Player.h"
 #include "PickUp.h"
+#include "Zombie.h"
 
 class Level :
 	public Game
@@ -15,7 +16,11 @@ private:
 	sf::Texture _backgroundTexture;
 	MusicPlayer* _musicPlayer;
 
-	const std::string TEXTURES_PATH = "../Game/Assets/Textures/";
+	sf::Text _text;
+	sf::Font _font;
+
+	const std::string TEXTURES_PATH = "../Assets/Textures/";
+	const std::string FONTS_PATH = "../Assets/Fonts/";
 
 public:
 	Level();
@@ -27,7 +32,7 @@ public:
 	void Init();
 	void Destroy();
 
-	void LoadAssets();
+	void AddEntities();
 
 	void CheckState();
 };

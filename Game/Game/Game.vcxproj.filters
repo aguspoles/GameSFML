@@ -81,6 +81,12 @@
     <ClCompile Include="SoundEffect.cpp">
       <Filter>Archivos de código fuente\Others</Filter>
     </ClCompile>
+    <ClCompile Include="Zombie.cpp">
+      <Filter>Archivos de código fuente\Entities\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadScreen.cpp">
+      <Filter>Archivos de código fuente\States</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Entity.h">
@@ -121,6 +127,12 @@
     </ClInclude>
     <ClInclude Include="SoundEffect.h">
       <Filter>Archivos de encabezado\Others</Filter>
+    </ClInclude>
+    <ClInclude Include="Zombie.h">
+      <Filter>Archivos de encabezado\Entities\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="LoadScreen.h">
+      <Filter>Archivos de encabezado\States</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

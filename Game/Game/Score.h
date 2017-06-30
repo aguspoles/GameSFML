@@ -19,6 +19,7 @@ public:
 	Score();
 	~Score();
 
+	static int PickUpsLeft;
 	static int SCORE;
 	static void ShowScore(sf::RenderWindow* window);
 	static void ShowHighScore(sf::RenderWindow* window);

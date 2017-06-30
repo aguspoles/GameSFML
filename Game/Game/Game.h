@@ -5,6 +5,9 @@
 #include <list>
 #include <time.h>
 #include "Score.h"
+#if DEBUG
+#include <iostream>
+#endif
 
 class Game
 {

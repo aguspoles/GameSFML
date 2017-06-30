@@ -5,6 +5,9 @@
 #include<string>
 #include <list>
 #include <map>
+#if DEBUG
+#include <iostream>
+#endif
 
 class Entity
 {

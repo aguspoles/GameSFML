@@ -1,5 +1,4 @@
 #include "Animation.h"
-#include <iostream>
 
 Animation::Animation()
 {
