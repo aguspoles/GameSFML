@@ -76,6 +76,12 @@
     <IncludePath>$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <LibraryPath>$(VC_LibraryPath_x86);$(WindowsSDK_LibraryPath_x86);$(NETFXKitsDir)Lib\um\x86</LibraryPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <CustomBuildAfterTargets />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <CustomBuildAfterTargets />
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -94,7 +100,8 @@
       <Command>copy $(SolutionDir)SFML-2.4.2\bin\*dll $(SolutionDir)Debug
 copy $(SolutionDir)VLD\bin\Win32\*dll $(SolutionDir)Debug
 copy $(SolutionDir)VLD\bin\Win32\vld_x86.pdb $(SolutionDir)Debug
-copy $(SolutionDir)VLD\bin\Win32\Microsoft.DTfW.DHL.manifest $(SolutionDir)Debug</Command>
+copy $(SolutionDir)VLD\bin\Win32\Microsoft.DTfW.DHL.manifest $(SolutionDir)Debug
+xcopy $(SolutionDir)Game\Assets $(SolutionDir)Debug /e</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -134,8 +141,7 @@ copy $(SolutionDir)SFML-2.4.2\bin\*dll $(SolutionDir)Debug</Command>
       <SubSystem>Windows</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>xcopy $(SolutionDir)Game\Assets $(SolutionDir)Release /e</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

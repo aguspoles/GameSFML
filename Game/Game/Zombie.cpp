@@ -1,7 +1,7 @@
 #include "Zombie.h"
 
 std::map<ZombieTextures::TextureID, sf::Texture> Zombie::TextureMap;
-const std::string Zombie::TEXTURES_PATH = "../Assets/Textures/Enemy/Zombie/";
+const std::string Zombie::TEXTURES_PATH = "Assets/Textures/Enemy/Zombie/";
 const float Zombie::Speed = 15;
 
 Zombie::Zombie() : _directionFlag(true), _isLookingRight(true)

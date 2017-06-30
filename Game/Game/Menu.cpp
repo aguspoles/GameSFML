@@ -120,7 +120,7 @@ void Menu::WebRequest()
 void Menu::LoadCityFromFile()
 {
 	std::ifstream loadFile;
-	loadFile.open("../Assets/web.txt");
+	loadFile.open("Assets/web.txt");
 	if (loadFile.fail())
 	{
 #ifdef DEBUG

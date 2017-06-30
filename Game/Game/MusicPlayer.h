@@ -18,7 +18,7 @@ private:
 	std::map<Music::ID, std::string> _fileName;
 	float _volume;
 
-	const std::string MUSIC_PATH = "../Assets/Music/";
+	const std::string MUSIC_PATH = "Assets/Music/";
 
 public:
 	MusicPlayer();

@@ -1,7 +1,7 @@
 #include "Player.h"
 
 std::map<PlayerTextures::TextureID, sf::Texture> Player::TextureMap;
-const std::string Player::TEXTURES_PATH = "../Assets/Textures/Player/";
+const std::string Player::TEXTURES_PATH = "Assets/Textures/Player/";
 const float Player::Speed = 130;
 
 Player::Player() : _movementSpeed(0), _isMoving(false), _isDestroy(false), 

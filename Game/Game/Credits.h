@@ -17,7 +17,7 @@ private:
 	sf::Font _font1;
 	MusicPlayer* _musicPlayer;
 
-	const std::string FONTS_PATH = "../Assets/Fonts/";
+	const std::string FONTS_PATH = "Assets/Fonts/";
 
 public:
 	Credits();

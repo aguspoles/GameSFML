@@ -2,8 +2,8 @@
 
 std::map<PickUpAssets::TextureID, sf::Texture> PickUp::TextureMap;
 std::map<PickUpAssets::SoundID, SoundEffect> PickUp::SoundMap;
-const std::string PickUp::TEXTURES_PATH = "../Assets/Textures/Skeleton/";
-const std::string PickUp::SOUND_PATH = "../Assets/Sounds/";
+const std::string PickUp::TEXTURES_PATH = "Assets/Textures/Skeleton/";
+const std::string PickUp::SOUND_PATH = "Assets/Sounds/";
 
 PickUp::PickUp()
 {

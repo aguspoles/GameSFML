@@ -1,7 +1,7 @@
 #include "PumpkinBoy.h"
 
 std::map<PumpKinTextures::TextureID, sf::Texture> PumpkinBoy::TextureMap;
-const std::string PumpkinBoy::TEXTURES_PATH = "../Assets/Textures/Enemy/PumpKinBoy/";
+const std::string PumpkinBoy::TEXTURES_PATH = "Assets/Textures/Enemy/PumpKinBoy/";
 const float PumpkinBoy::Speed = 100;
 
 PumpkinBoy::PumpkinBoy() : _directionFlag(true), _isLookingRight(true)

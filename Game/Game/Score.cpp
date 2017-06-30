@@ -5,7 +5,7 @@ int Score::HighScore = 0;
 int Score::PickUpsLeft = 5;
 sf::Text Score::_text;
 sf::Font Score::_font;
-const std::string Score::FONTS_PATH = "../Assets/Fonts/";
+const std::string Score::FONTS_PATH = "Assets/Fonts/";
 
 Score::Score()
 {
@@ -46,7 +46,7 @@ void Score::SaveHighScore()
 	if (SCORE > HighScore)
 	{
 		std::ofstream saveFile;
-		saveFile.open("../Assets/save.txt");
+		saveFile.open("Assets/save.txt");
 		if (saveFile.fail())
 		{
 #ifdef DEBUG
@@ -64,7 +64,7 @@ void Score::SaveHighScore()
 void Score::LoadHighScore()
 {
 	std::ifstream loadFile;
-	loadFile.open("../Assets/save.txt");
+	loadFile.open("Assets/save.txt");
 	if (loadFile.fail())
 	{
 #ifdef DEBUG

@@ -3,7 +3,7 @@
 #include "SFML\Network.hpp"
 #include "LoadScreen.h"
 #include "MusicPlayer.h"
-#include "../json.hpp"
+#include "json.hpp"
 using json = nlohmann::json;
 
 class Menu :
@@ -17,7 +17,7 @@ private:
 	std::string _city;
 	std::string _clima;
 	
-	const std::string FONTS_PATH = "../Assets/Fonts/";
+	const std::string FONTS_PATH = "Assets/Fonts/";
 
 public:
 	Menu();
