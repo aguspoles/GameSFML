@@ -141,7 +141,8 @@ copy $(SolutionDir)SFML-2.4.2\bin\*dll $(SolutionDir)Debug</Command>
       <SubSystem>Windows</SubSystem>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy $(SolutionDir)Game\Assets $(SolutionDir)Release /e</Command>
+      <Command>xcopy $(SolutionDir)Game\Assets $(SolutionDir)Release /e
+copy $(SolutionDir)SFML-2.4.2\OpenAL32.dll  $(SolutionDir)Release</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
