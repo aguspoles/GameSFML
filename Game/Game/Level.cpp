@@ -81,6 +81,7 @@ void Level::Update()
 					Score::SaveHighScore();
 					Score::SCORE = 0;
 					_musicPlayer->Stop();
+					Score::PickUpsLeft = 5;
 					SwitchState(new  Credits());
 				}
 			}
@@ -164,6 +165,7 @@ void Level::CheckState()
 	{
 		Score::SaveHighScore();
 		Score::SCORE = 0;
+		Score::PickUpsLeft = 5;
 		_musicPlayer->Stop();
 		SwitchState(new Menu());
 	}
